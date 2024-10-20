@@ -2,10 +2,6 @@
 
 $border-dark: 1px solid rgb(85, 84, 84);
 
-h1{
-    color: red;
-}
-
 .testColor{
     color: blue;
 }
@@ -30,8 +26,6 @@ html{
     border-radius: 10px;
     border: $border-dark;
     text-align: center;
-
-    
 }
 
 .buttonContainer{
@@ -98,3 +92,11 @@ html{
         }
     }
 }
+
+.tasksContainer{
+    max-width: 500px;
+    margin: 2rem auto 0 auto;
+}
+
+
+// card styles
