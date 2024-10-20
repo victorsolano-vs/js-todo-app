@@ -27,11 +27,13 @@ html {
   border: 1px solid rgb(85, 84, 84);
   text-align: center;
 }
-.siteContainer .buttonContainer {
+
+.buttonContainer {
   margin: 1rem 0 1rem 0;
 }
-.siteContainer .buttonContainer .sectionChangerBtn {
+.buttonContainer .sectionChangerBtn {
   font-size: 16px;
+  min-width: 167px;
   padding: 0.3rem 0.8rem;
   border-radius: 8px;
   color: white;
@@ -40,11 +42,41 @@ html {
   background: transparent;
   transition: background 0.2s ease-in;
 }
-.siteContainer .buttonContainer .sectionChangerBtn:hover {
+.buttonContainer .sectionChangerBtn:hover {
   background: rgb(54, 53, 53);
 }
 
 .appTitle {
   text-align: center;
   color: white;
+}
+
+.addTasksContainer {
+  display: inline-flex;
+}
+.addTasksContainer .addTaskBtn {
+  border: 1px solid rgb(85, 84, 84);
+  border-left: none;
+  border-radius: 0 3px 3px 0;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  background: rgb(53, 52, 52);
+  padding: 0.2rem 0.3rem;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+}
+.addTasksContainer .addTaskBtn img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(298deg) brightness(105%) contrast(103%);
+}
+.addTasksContainer .taskInput {
+  border: 1px solid rgb(85, 84, 84);
+  border-right: none;
+  border-radius: 3px 0 0 3px;
+  background: rgb(43, 42, 42);
+  color: white;
+  padding: 0.3rem 0.2rem;
+}
+.addTasksContainer .taskInput:focus {
+  outline: none;
 }/*# sourceMappingURL=styles.css.map */
