@@ -1,17 +1,4 @@
-const test = document.querySelector('.appTitle')
-
-console.log(test)
-
 const myTasks = ['watch football', 'wash dishes'];
-
-console.log(myTasks)
-
-// setTimeout(() => {
-//     const inputValue = document.querySelector('.taskInput')
-//     myTasks.push(inputValue.value)
-//     console.log(inputValue.value)
-//     console.log(myTasks)
-// }, 10000)
 
 function addInput() {
     // get input value from input tag
@@ -33,9 +20,18 @@ function addInput() {
     }
 }
 
+
+const inputKeySubmit = document.querySelector('.taskInput')
+inputKeySubmit.addEventListener('keydown', (event) =>{ 
+    if(event.key === 'Enter'){
+        event.preventDefault()
+        addInput()
+    }
+})
+
+
 const addTaskBtn = document.querySelector('.addTaskBtn')
 addTaskBtn.addEventListener('click', () => {
-    
     addInput()
     console.log(myTasks)
     
@@ -61,8 +57,7 @@ function renderTasks() {
             </div>
         `
     })
-    console.log(taskCardsHTML)
-
+    
     document.querySelector('.tasksContainer').innerHTML = taskCardsHTML
 }
 
