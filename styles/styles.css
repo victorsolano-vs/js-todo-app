@@ -65,9 +65,13 @@ html {
   color: white;
   cursor: pointer;
   text-align: center;
+  transition: background 0.2s ease-in;
 }
 .addTasksContainer .addTaskBtn img {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(298deg) brightness(105%) contrast(103%);
+}
+.addTasksContainer .addTaskBtn:hover {
+  background: rgb(54, 53, 53);
 }
 .addTasksContainer .taskInput {
   border: 1px solid rgb(85, 84, 84);

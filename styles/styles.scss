@@ -74,9 +74,14 @@ html{
         color: white;
         cursor: pointer;
         text-align: center;
+        transition: background 0.2s ease-in;
 
         img{
             filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(298deg) brightness(105%) contrast(103%);
+        }
+
+        &:hover{
+            background:rgb(54, 53, 53) ;
         }
     }
 
