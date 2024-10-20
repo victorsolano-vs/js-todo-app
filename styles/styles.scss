@@ -64,18 +64,14 @@ html{
         padding-top: 0.3rem;
         padding-bottom: 0.3rem;
         background: rgb(53, 52, 52);
-        padding: 0.2rem 0.3rem;
+        padding: 0.2rem 0.5rem;
         color: white;
         cursor: pointer;
         text-align: center;
         transition: background 0.2s ease-in;
 
-        img{
-            filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(298deg) brightness(105%) contrast(103%);
-        }
-
         &:hover{
-            background:rgb(54, 53, 53) ;
+            background:rgb(66, 65, 65) ;
         }
     }
 
@@ -100,3 +96,57 @@ html{
 
 
 // card styles
+.taskCard{
+    background: rgb(43, 42, 42);
+    margin: 0.5rem auto 0 auto;
+    padding: 1rem;
+    border-radius: 10px;
+    border: $border-dark;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.textContainer{
+
+    .cardTitle{
+        color: white;
+        font-size: 16px;
+    }
+}
+
+.cardBtns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    .cardEditBtn{
+        &:hover {
+            background: rgb(67, 67, 168);
+        }
+    }
+    .cardDeleteBtn{
+        &:hover {
+            background: rgb(184, 59, 59);
+        }
+    }
+}
+
+
+
+.cardBtn{
+    font-size: 14px;
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    color: white;
+    border: $border-dark;
+    cursor: pointer;
+    background: transparent;
+    transition: background 0.2s ease-in;
+
+}
+

@@ -47,8 +47,18 @@ function renderTasks() {
 
     myTasks.forEach((task) => {
         taskCardsHTML += `
-        
-        <h1>${task}</h1>
+            <div class="taskCard">
+                <div class="textContainer">
+                <p class="cardTitle">${task}</p>
+                </div>
+                
+    
+                <div class="cardBtns">
+                <button class="cardBtn cardEditBtn">edit</button>
+                <button class="cardBtn cardDeleteBtn">delete</button>      
+                </div>
+
+            </div>
         `
     })
     console.log(taskCardsHTML)
@@ -56,4 +66,4 @@ function renderTasks() {
     document.querySelector('.tasksContainer').innerHTML = taskCardsHTML
 }
 
-//renderTasks()
+renderTasks()
