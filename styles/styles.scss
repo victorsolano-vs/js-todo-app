@@ -38,11 +38,11 @@ html{
         color: white;
         border: $border-dark;
         cursor: pointer;
-        background: transparent;
+        background: rgb(53, 52, 52);
         transition: background 0.2s ease-in;
 
         &:hover{
-            background:rgb(54, 53, 53) ;
+            background: rgb(66, 65, 65);
         }
     }
 }
@@ -124,6 +124,11 @@ html{
     justify-content: center;
     gap: 5px;
 
+    .cardDoneBtn{
+        &:hover {
+            background: rgb(24, 204, 39);
+        }
+    }
     .cardEditBtn{
         &:hover {
             background: rgb(67, 67, 168);
@@ -148,4 +153,13 @@ html{
     background: transparent;
     transition: background 0.2s ease-in;
 
+}
+
+.active{
+    background-color: red;
+}
+
+.emptyTaskList{
+    color: rgb(148, 144, 144);
+    text-align: center;
 }

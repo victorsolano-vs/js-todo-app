@@ -1,4 +1,7 @@
-const myTasks = ['watch football', 'wash dishes'];
+import { renderTasks, myTasks } from "./render.js";
+
+// render html cards
+renderTasks()
 
 function addInput() {
     // get input value from input tag
@@ -20,7 +23,7 @@ function addInput() {
     }
 }
 
-
+// event listener to press enter to submit task
 const inputKeySubmit = document.querySelector('.taskInput')
 inputKeySubmit.addEventListener('keydown', (event) =>{ 
     if(event.key === 'Enter'){
@@ -29,7 +32,7 @@ inputKeySubmit.addEventListener('keydown', (event) =>{
     }
 })
 
-
+// event listener to add functionality to add btn
 const addTaskBtn = document.querySelector('.addTaskBtn')
 addTaskBtn.addEventListener('click', () => {
     addInput()
@@ -37,28 +40,16 @@ addTaskBtn.addEventListener('click', () => {
     
 })
 
+// function to delete task from list
+const deleteTaskBtn = document.querySelectorAll('.cardDeleteBtn')
 
-function renderTasks() {
-    let taskCardsHTML = ''
 
-    myTasks.forEach((task) => {
-        taskCardsHTML += `
-            <div class="taskCard">
-                <div class="textContainer">
-                <p class="cardTitle">${task}</p>
-                </div>
-                
-    
-                <div class="cardBtns">
-                <button class="cardBtn cardEditBtn">edit</button>
-                <button class="cardBtn cardDeleteBtn">delete</button>      
-                </div>
-
-            </div>
-        `
+deleteTaskBtn.forEach((deleteTask) => {
+    deleteTask.addEventListener('click', () => {
+        console.log('delete')
     })
-    
-    document.querySelector('.tasksContainer').innerHTML = taskCardsHTML
-}
+})
 
-renderTasks()
+
+
+

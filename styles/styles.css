@@ -35,11 +35,11 @@ html {
   color: white;
   border: 1px solid rgb(85, 84, 84);
   cursor: pointer;
-  background: transparent;
+  background: rgb(53, 52, 52);
   transition: background 0.2s ease-in;
 }
 .buttonContainer .sectionChangerBtn:hover {
-  background: rgb(54, 53, 53);
+  background: rgb(66, 65, 65);
 }
 
 .appTitle {
@@ -107,6 +107,9 @@ html {
   justify-content: center;
   gap: 5px;
 }
+.cardBtns .cardDoneBtn:hover {
+  background: rgb(24, 204, 39);
+}
 .cardBtns .cardEditBtn:hover {
   background: rgb(67, 67, 168);
 }
@@ -123,4 +126,13 @@ html {
   cursor: pointer;
   background: transparent;
   transition: background 0.2s ease-in;
+}
+
+.active {
+  background-color: red;
+}
+
+.emptyTaskList {
+  color: rgb(148, 144, 144);
+  text-align: center;
 }/*# sourceMappingURL=styles.css.map */
