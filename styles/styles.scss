@@ -38,13 +38,18 @@ html{
         color: white;
         border: $border-dark;
         cursor: pointer;
-        background: rgb(53, 52, 52);
+        // background: rgb(53, 52, 52);
         transition: background 0.2s ease-in;
 
         &:hover{
             background: rgb(66, 65, 65);
         }
     }
+    
+}
+
+.myTasksBtn, .completedTasksBtn{
+    background: rgb(53, 52, 52);
 }
 
 

@@ -35,11 +35,14 @@ html {
   color: white;
   border: 1px solid rgb(85, 84, 84);
   cursor: pointer;
-  background: rgb(53, 52, 52);
   transition: background 0.2s ease-in;
 }
 .buttonContainer .sectionChangerBtn:hover {
   background: rgb(66, 65, 65);
+}
+
+.myTasksBtn, .completedTasksBtn {
+  background: rgb(53, 52, 52);
 }
 
 .appTitle {

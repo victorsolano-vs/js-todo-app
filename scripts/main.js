@@ -40,15 +40,6 @@ addTaskBtn.addEventListener('click', () => {
     
 })
 
-// function to delete task from list
-const deleteTaskBtn = document.querySelectorAll('.cardDeleteBtn')
-
-
-deleteTaskBtn.forEach((deleteTask) => {
-    deleteTask.addEventListener('click', () => {
-        console.log('delete')
-    })
-})
 
 
 

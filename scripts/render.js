@@ -1,4 +1,6 @@
-export const myTasks = ['watch football', 'yo'];
+export const myTasks = ['watch football', 'wash dishes'];
+
+
 
 // render html list of tasks to be done
 export function renderTasks() {
@@ -31,4 +33,26 @@ export function renderTasks() {
     
     
     document.querySelector('.tasksContainer').innerHTML = taskCardsHTML
+
+
+    // function to delete task from list
+    const deleteTaskBtn = document.querySelectorAll('.cardDeleteBtn')
+    console.log(deleteTaskBtn)
+
+
+
+
+    deleteTaskBtn.forEach((deleteTask, index) => {
+        deleteTask.addEventListener('click', () => {
+            deleteTaskFunc(index)
+        })
+    })
 }
+
+
+
+function deleteTaskFunc(index) {
+    myTasks.splice(index, 1)
+    renderTasks()
+}
+
