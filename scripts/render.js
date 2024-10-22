@@ -1,6 +1,14 @@
 export const myTasks = ['watch football', 'wash dishes'];
 
+// global index for task edit
+// let taskIndex;
 
+
+// get modal
+const modalDiv = document.getElementById('modal')
+
+// get modal close btn
+const modalCloseBtn = document.getElementById('closeBtn')
 
 // render html list of tasks to be done
 export function renderTasks() {
@@ -31,28 +39,48 @@ export function renderTasks() {
         `
     }
     
-    
     document.querySelector('.tasksContainer').innerHTML = taskCardsHTML
-
 
     // function to delete task from list
     const deleteTaskBtn = document.querySelectorAll('.cardDeleteBtn')
-    console.log(deleteTaskBtn)
-
-
-
-
     deleteTaskBtn.forEach((deleteTask, index) => {
         deleteTask.addEventListener('click', () => {
             deleteTaskFunc(index)
         })
     })
+
+    // function to delete task from list
+    const editTaskBtn = document.querySelectorAll('.cardEditBtn')
+    editTaskBtn.forEach((editTask, index) => {
+        editTask.addEventListener('click', () => {
+            openModal()
+            saveNewTask(index)
+        })
+    })
 }
 
 
-
-function deleteTaskFunc(index) {
-    myTasks.splice(index, 1)
-    renderTasks()
+function openModal() {
+    modalDiv.style.display = 'block'
 }
+
+function closeModal() {
+    modalDiv.style.display = ''
+}
+modalCloseBtn.addEventListener('click', closeModal)
+
+function saveNewTask(index) {
+    const savebtn = document.querySelector('.saveNewTaskBtn')
+
+    savebtn.addEventListener('click', () =>{
+        let newTask = document.querySelector('.editTaskInput').value
+        myTasks[index] = newTask
+
+        renderTasks()
+        closeModal()
+    })
+    
+}
+
+
 
