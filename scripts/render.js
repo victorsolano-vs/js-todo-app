@@ -1,4 +1,12 @@
 export const myTasks = ['watch football', 'wash dishes'];
+const myNewTasks = [{
+    task: 'watch football',
+    taskStatus: 'incomplete'
+},
+{
+    task: 'wash dishes',
+    taskStatus: 'complete'
+}]
 
 // global index for task edit
 // let taskIndex;
@@ -53,19 +61,27 @@ export function renderTasks() {
     const editTaskBtn = document.querySelectorAll('.cardEditBtn')
     editTaskBtn.forEach((editTask, index) => {
         editTask.addEventListener('click', () => {
-            openModal()
+            openModal(index)
             saveNewTask(index)
         })
     })
 }
 
 
-function openModal() {
+function openModal(index) {
+    const currentTaskText = document.querySelector('.currentTask')
+    currentTaskText.innerHTML = `Current Task: ${myTasks[index]}`
     modalDiv.style.display = 'block'
+
+    document.querySelector('.overlay').style.display = 'block'
 }
 
 function closeModal() {
     modalDiv.style.display = ''
+
+    document.querySelector('.editTaskInput').value = ''
+    document.querySelector('.overlay').style.display = ''
+
 }
 modalCloseBtn.addEventListener('click', closeModal)
 
@@ -74,13 +90,24 @@ function saveNewTask(index) {
 
     savebtn.addEventListener('click', () =>{
         let newTask = document.querySelector('.editTaskInput').value
-        myTasks[index] = newTask
 
-        renderTasks()
-        closeModal()
+        if((newTask === '') || newTask.toLowerCase() === myTasks[index].toLowerCase()){
+            alert('The new task is either empty or the same task was repeated.')
+        } else {
+            myTasks[index] = newTask
+            renderTasks()
+            closeModal()
+        }
+
+        
+        
     })
     
 }
 
+function deleteTaskFunc(index) {
+    myTasks.splice(index, 1)
+    renderTasks()
+}
 
 
