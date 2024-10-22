@@ -1,6 +1,7 @@
-import { renderTasks, myTasks } from "./render.js";
+import { renderTasks, myTasks, myIncompleteTasks } from "./render.js";
+import { myCompletedTasks, renderCompletedTasks } from "./completedTasks.js";
 
-
+console.log(myCompletedTasks)
 // render html cards
 renderTasks()
 
@@ -13,7 +14,10 @@ function addInput() {
         return
     } else {
         // add value to array
-        myTasks.push(inputValue)
+        myTasks.push({
+            task: inputValue,
+            taskStatus: 'incomplete'
+        })
 
         // reset the input
         document.querySelector('.taskInput').value = ''
@@ -42,6 +46,11 @@ addTaskBtn.addEventListener('click', () => {
 })
 
 
-
+document.querySelector('.completedTasksBtn').addEventListener('click', () => {
+    renderCompletedTasks()
+})
+document.querySelector('.myTasksBtn').addEventListener('click', () => {
+    renderTasks()
+})
 
 

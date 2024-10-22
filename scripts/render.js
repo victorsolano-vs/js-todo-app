@@ -1,5 +1,5 @@
-export const myTasks = ['watch football', 'wash dishes'];
-const myNewTasks = [{
+// export const myTasks = ['watch football', 'wash dishes'];
+export const myTasks = [{
     task: 'watch football',
     taskStatus: 'incomplete'
 },
@@ -7,9 +7,8 @@ const myNewTasks = [{
     task: 'wash dishes',
     taskStatus: 'complete'
 }]
+export let myIncompleteTasks; 
 
-// global index for task edit
-// let taskIndex;
 
 
 // get modal
@@ -20,14 +19,20 @@ const modalCloseBtn = document.getElementById('closeBtn')
 
 // render html list of tasks to be done
 export function renderTasks() {
+
+    myIncompleteTasks = myTasks.filter((task, index) => {
+        return task.taskStatus === 'incomplete'
+    })
+    
     let taskCardsHTML = ''
 
     
-    myTasks.forEach((task) => {
+    myIncompleteTasks.forEach((task) => {
         taskCardsHTML += `
             <div class="taskCard">
                 <div class="textContainer">
-                <p class="cardTitle">${task}</p>
+                <p class="cardTitle">${task.task}</p>
+                <p class = "cardStatus">${task.taskStatus}</p>
                 </div>
                 
     
@@ -57,7 +62,7 @@ export function renderTasks() {
         })
     })
 
-    // function to delete task from list
+    // function to edit task from list
     const editTaskBtn = document.querySelectorAll('.cardEditBtn')
     editTaskBtn.forEach((editTask, index) => {
         editTask.addEventListener('click', () => {
@@ -91,20 +96,19 @@ function saveNewTask(index) {
     savebtn.addEventListener('click', () =>{
         let newTask = document.querySelector('.editTaskInput').value
 
-        if((newTask === '') || newTask.toLowerCase() === myTasks[index].toLowerCase()){
+        if((newTask === '') || newTask.toLowerCase() === myIncompleteTasks[index].task.toLowerCase()){
             alert('The new task is either empty or the same task was repeated.')
         } else {
-            myTasks[index] = newTask
+            myIncompleteTasks[index].task = newTask
             renderTasks()
             closeModal()
         }
-
-        
-        
     })
     
 }
 
+
+// function to delete task from list
 function deleteTaskFunc(index) {
     myTasks.splice(index, 1)
     renderTasks()
