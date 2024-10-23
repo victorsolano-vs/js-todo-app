@@ -1,7 +1,9 @@
-import { renderTasks, myTasks, myIncompleteTasks } from "./render.js";
-import { myCompletedTasks, renderCompletedTasks } from "./completedTasks.js";
+import { renderTasks, myTasks, myIncompleteTasks, renderCompletedTasks } from "./render.js";
 
-console.log(myCompletedTasks)
+let activeBtn = document.querySelector('.myTasksBtn')
+activeBtn.classList.add('active')
+
+
 // render html cards
 renderTasks()
 
@@ -24,7 +26,6 @@ function addInput() {
 
         // re-render tasks html
         renderTasks()
-        
     }
 }
 
@@ -42,15 +43,26 @@ const addTaskBtn = document.querySelector('.addTaskBtn')
 addTaskBtn.addEventListener('click', () => {
     addInput()
     console.log(myTasks)
-    
 })
 
 
-document.querySelector('.completedTasksBtn').addEventListener('click', () => {
+
+const myCompletedTasksBtn = document.querySelector('.completedTasksBtn')
+
+myCompletedTasksBtn.addEventListener('click', () => {
     renderCompletedTasks()
+    toggleActiveBtn(myCompletedTasksBtn)
 })
-document.querySelector('.myTasksBtn').addEventListener('click', () => {
+
+const myCurrentTasksBtn = document.querySelector('.myTasksBtn')
+myCurrentTasksBtn.addEventListener('click', () => {
     renderTasks()
+    toggleActiveBtn(myCurrentTasksBtn)
 })
 
+function toggleActiveBtn(buttonClicked) {
+    myCompletedTasksBtn.classList.remove('active')
+    myCurrentTasksBtn.classList.remove('active')
 
+    buttonClicked.classList.add('active')
+}

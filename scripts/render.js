@@ -1,14 +1,15 @@
-// export const myTasks = ['watch football', 'wash dishes'];
-export const myTasks = [{
-    task: 'watch football',
-    taskStatus: 'incomplete'
-},
-{
-    task: 'wash dishes',
-    taskStatus: 'complete'
-}]
-export let myIncompleteTasks; 
+export const myTasks = JSON.parse(localStorage.getItem('tasks')) || []
 
+// export const myTasks = [{
+//     task: 'watch football',
+//     taskStatus: 'incomplete'
+// },
+// {
+//     task: 'wash dishes',
+//     taskStatus: 'complete'
+// }]
+export let myIncompleteTasks; 
+export let myCompletedTasks = myTasks
 
 
 // get modal
@@ -19,6 +20,8 @@ const modalCloseBtn = document.getElementById('closeBtn')
 
 // render html list of tasks to be done
 export function renderTasks() {
+
+    
 
     myIncompleteTasks = myTasks.filter((task, index) => {
         return task.taskStatus === 'incomplete'
@@ -51,7 +54,7 @@ export function renderTasks() {
         <p class = "emptyTaskList">There have been no new tasks added.</p>
         `
     }
-    
+    localStorage.setItem('tasks', JSON.stringify(myTasks))
     document.querySelector('.tasksContainer').innerHTML = taskCardsHTML
 
     // function to delete task from list
@@ -70,6 +73,7 @@ export function renderTasks() {
             saveNewTask(index)
         })
     })
+
 }
 
 
@@ -115,3 +119,28 @@ function deleteTaskFunc(index) {
 }
 
 
+
+
+export function renderCompletedTasks() {
+    let taskCardsHTML = ''
+
+    
+    myCompletedTasks.forEach((task) => {
+        taskCardsHTML += `
+            <div class="taskCard">
+                <div class="textContainer">
+                    <p class="cardTitle">${task.task}</p>
+                    <p class = "cardStatus">${task.taskStatus}</p>
+                </div>
+            </div>
+        `
+    })
+    
+    if(taskCardsHTML === ''){
+        taskCardsHTML = `
+        <p class = "emptyTaskList">There have been no new tasks added.</p>
+        `
+    }
+    
+    document.querySelector('.tasksContainer').innerHTML = taskCardsHTML
+}
